@@ -10,7 +10,7 @@ public class DataBase {
         String query = "SELECT * FROM users;";
 
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
+//        Class.forName("com.mysql.cj.jdbc.Driver");
 
         Connection con = DriverManager.getConnection(url, uName, password);
         Statement st = con.createStatement();

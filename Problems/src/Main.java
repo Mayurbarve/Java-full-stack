@@ -22,6 +22,5 @@ public class Main {
         String str = "({{[]}})[]";
         System.out.println(obj.strFormat(str));
     
-
     }
 }
