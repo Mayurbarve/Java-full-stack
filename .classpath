@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="AbstractAtm/src"/>
+	<classpathentry kind="src" path="Interface/src"/>
+	<classpathentry kind="src" path="InventoryManagement/src"/>
+	<classpathentry kind="src" path="JDBC/src"/>
+	<classpathentry kind="src" path="Problems/src"/>
+	<classpathentry kind="output" path="InventoryManagement/out/production/InventoryManagement"/>
+</classpath>

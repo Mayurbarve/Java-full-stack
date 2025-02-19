@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-configuration>
+    <session-factory>
+    	<property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.password">M1S2@Sql</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/socialMedia</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.default_schema">socialMedia</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <mapping class="SocialMedia.com.socialPlatform.UserLoginData"/>
+        
+    </session-factory>
+</hibernate-configuration>
