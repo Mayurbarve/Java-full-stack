@@ -6,7 +6,10 @@ import org.hibernate.Transaction;
 
 public class LoginPage extends JFrame {
     
-    public LoginPage() {
+	private static final long serialVersionUID = 1L;
+
+
+	public LoginPage() {
         setTitle("Login Page");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -15,7 +18,7 @@ public class LoginPage extends JFrame {
         panel.setLayout(null);
         add(panel);
 
-        JLabel userLabel = new JLabel("Email:");
+        JLabel userLabel = new JLabel("Username:");
         userLabel.setBounds(10, 20, 80, 25);
         panel.add(userLabel);
         
@@ -49,6 +52,10 @@ public class LoginPage extends JFrame {
         try (Session session = new HibernateUtil().getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             UserLoginData user = new UserLoginData(username, password);
+            UserData userName = new UserData();
+            userName.setUserName(username);
+            
+            session.save(userName);
             session.save(user);
             transaction.commit();
             session.close();
@@ -60,12 +67,18 @@ public class LoginPage extends JFrame {
     
 
     public void loginUser(String username, String password) {
-        try (Session session = new  HibernateUtil().getSessionFactory().openSession()) {
-            UserLoginData user = session.get(UserLoginData.class, username);
+        try (Session session = new HibernateUtil().getSessionFactory().openSession()) {
+            UserLoginData user = session.createQuery("FROM UserLoginData WHERE username = :username", UserLoginData.class)
+                                        .setParameter("username", username)
+                                        .uniqueResult();
+
             if (user != null && user.getPassword().equals(password)) {
                 JOptionPane.showMessageDialog(null, "Login Successful!");
                 this.dispose();
-                new ProfilePage();
+
+                // Open Profile Section
+                new SampleProfilePage(user.getUsername());
+
                 session.close();
             } else {
                 JOptionPane.showMessageDialog(null, "Invalid Credentials!");
@@ -74,4 +87,5 @@ public class LoginPage extends JFrame {
             e.printStackTrace();
         }
     }
+
 }
