@@ -1,12 +1,13 @@
+package ProductData;
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class InventoryUI {
     private JFrame frame;
-    private JTextField txtProductId, txtName, txtDescription, txtCostPrice, txtSellingPrice;
+    private JTextField txtProductId, txtName, txtDescription, txtPrice, txtQuantity;
     private JButton btnAdd, btnClear;
 
     public InventoryUI() {
@@ -28,13 +29,13 @@ public class InventoryUI {
         txtDescription = new JTextField();
         frame.add(txtDescription);
 
-        frame.add(new JLabel("Cost Price:"));
-        txtCostPrice = new JTextField();
-        frame.add(txtCostPrice);
+        frame.add(new JLabel("Product Price:"));
+        txtPrice = new JTextField();
+        frame.add(txtPrice);
 
-        frame.add(new JLabel("Selling Price:"));
-        txtSellingPrice = new JTextField();
-        frame.add(txtSellingPrice);
+        frame.add(new JLabel("Quantity:"));
+        txtQuantity = new JTextField();
+        frame.add(txtQuantity);
 
         // Buttons
         btnAdd = new JButton("Add Product");
@@ -66,10 +67,10 @@ public class InventoryUI {
             int productId = Integer.parseInt(txtProductId.getText());
             String name = txtName.getText();
             String description = txtDescription.getText();
-            double costPrice = Double.parseDouble(txtCostPrice.getText());
-            double sellingPrice = Double.parseDouble(txtSellingPrice.getText());
+            double price = Double.parseDouble(txtPrice.getText());
+            double quantity = Double.parseDouble(txtQuantity.getText());
 
-            DatabaseConnection.insertProduct(productId, name, description, costPrice, sellingPrice);
+            DatabaseConnection.insertProduct(productId, name, description, price, quantity);
             JOptionPane.showMessageDialog(frame, "Product Added Successfully!");
 
         } catch (NumberFormatException ex) {
@@ -81,7 +82,7 @@ public class InventoryUI {
         txtProductId.setText("");
         txtName.setText("");
         txtDescription.setText("");
-        txtCostPrice.setText("");
-        txtSellingPrice.setText("");
+        txtPrice.setText("");
+        txtQuantity.setText("");
     }
 }
