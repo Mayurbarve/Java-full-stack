@@ -1,16 +1,14 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
+  imports: [RouterLink, RouterOutlet],
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  @Output() sidenavToggle = new EventEmitter<void>();
-
-  toggleSidenav() {
-    this.sidenavToggle.emit();
-  }
+  imageUrl = 'assets/moodly.png';
 }
-

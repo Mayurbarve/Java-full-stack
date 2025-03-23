@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { RouterLink, RouterOutlet } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NavbarComponent, SidenavComponent],
+  imports: [ SidebarComponent, RouterOutlet ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  isSidenavOpen = false;
-
-  toggleSidenav() {
-    this.isSidenavOpen = !this.isSidenavOpen;
-  }
+  title = 'moodly';
 }
