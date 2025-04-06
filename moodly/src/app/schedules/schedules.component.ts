@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarService } from '../sidebar/sidebar.service'; // Adjust path if needed
-import { NgClass } from '@angular/common'; // Needed for [ngClass] in template
+import { NgClass } from '@angular/common'; 
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-schedules',
   standalone: true,
-  imports: [CommonModule, NgClass ], // Add NgClass for dynamic class binding
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'] // Fix typo: was "styleUrl"
+  imports: [CommonModule, NgClass],
+  templateUrl: './schedules.component.html',
+  styleUrl: './schedules.component.css'
 })
-export class HomeComponent {
-  sidebarCollapsed = true;
+export class SchedulesComponent {
+sidebarCollapsed = true;
 
   constructor(private sidebarService: SidebarService) {
     this.sidebarService.isCollapsed$.subscribe(state => {

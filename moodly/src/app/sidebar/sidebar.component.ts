@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { SidebarService } from './sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,7 +13,13 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 export class SidebarComponent {
   isSidebarCollapsed = true;
 
+  constructor(private sidebarService: SidebarService) {
+    this.sidebarService.isCollapsed$.subscribe(state => {
+      this.isSidebarCollapsed = state;
+    });
+  }
+
   toggleSidebar() {
-    this.isSidebarCollapsed = !this.isSidebarCollapsed;
+    this.sidebarService.toggleSidebarState();
   }
 }

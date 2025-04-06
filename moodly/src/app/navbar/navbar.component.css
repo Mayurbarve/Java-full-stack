@@ -2,7 +2,7 @@
 
 
 img {
-    height: 40px; /* Adjust logo size */
+    height: 45px; /* Adjust logo size */
     width: auto;  /* Maintain aspect ratio */
     cursor: pointer;
     transition: transform 0.3s ease-in-out;

@@ -4,13 +4,13 @@ import { SidebarService } from '../sidebar/sidebar.service'; // Adjust path if n
 import { NgClass } from '@angular/common'; // Needed for [ngClass] in template
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-journal',
   standalone: true,
-  imports: [CommonModule, NgClass ], // Add NgClass for dynamic class binding
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'] // Fix typo: was "styleUrl"
+  imports: [CommonModule, NgClass],
+  templateUrl: './journal.component.html',
+  styleUrl: './journal.component.css'
 })
-export class HomeComponent {
+export class JournalComponent {
   sidebarCollapsed = true;
 
   constructor(private sidebarService: SidebarService) {
@@ -21,5 +21,24 @@ export class HomeComponent {
 
   get containerClass() {
     return this.sidebarCollapsed ? 'ml-[80px]' : 'ml-[230px]';
+  }
+
+  showWriteModal: boolean = false;
+  showReadModal: boolean = false;
+
+  openWriteModal(): void {
+    this.showWriteModal = true;
+  }
+
+  closeWriteModal(): void {
+    this.showWriteModal = false;
+  }
+
+  openReadModal(): void {
+    this.showReadModal = true;
+  }
+
+  closeReadModal(): void {
+    this.showReadModal = false;
   }
 }

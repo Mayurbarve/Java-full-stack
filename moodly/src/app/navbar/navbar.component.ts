@@ -10,5 +10,5 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  imageUrl = 'assets/moodly.png';
+  imageUrl = 'assets/eunoia-logo.png';
 }
